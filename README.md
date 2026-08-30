@@ -4,7 +4,7 @@ This repository contains the server components required to run MPEdit.
 
 ## Prerequisites
 
-Before starting the servers, ensure that the required ports are accessible to the clients that need to connect to them.
+Before starting the servers, ensure that the required ports are accessible to clients that need to connect to them.
 
 The following ports are used:
 
@@ -14,7 +14,9 @@ The following ports are used:
 | `8000` | Signaling server |
 | `8001` | Web server       |
 
-You can either use the included `upnp.py` script to configure port forwarding automatically, (dont remember to run ipconfig or it wont work, i used port 43 on local ipv4) or manually forward ports `8000`, `8001`, and `7575` to the machine running the servers.
+You can either use the included `upnp.py` script to configure port forwarding automatically or manually forward ports `8000`, `8001`, and `7575` to the machine running the servers.
+
+> **Note:** If you are configuring port forwarding manually, make sure you identify the correct local IPv4 address of the server machine (for example, using `ipconfig` on Windows). Your router's configuration may vary.
 
 > **Security note:** Do not expose these services to the public internet unless you have configured appropriate authentication, access controls, and network security.
 
@@ -58,11 +60,20 @@ signaling.py   → 8000
 web.py         → 8001
 ```
 
-Make sure the required ports are reachable from the clients before attempting to connect.
+Make sure the required ports are reachable from clients before attempting to connect.
 
+## Hardware Recommendations
 
-### Recommendations
+For a basic session with all three components running on the same machine, we recommend at least:
 
-For the machine running all 3, we recommend a machine that has a ryzen 3 1200 or superior or an intel i3 10100f at a minimum with 8gb ram for a basic session. 
+* AMD Ryzen 3 1200 or equivalent
+* Intel Core i3-10100F or equivalent
+* 8 GB of RAM
 
-Although, we reccomend a ryzen 5 3600 or a intel i5 12400f or superior as a recommendation with 16gb ram. this also comes with ethernet connection, as wifi can sometimes be unstable.
+For improved performance and larger or more demanding sessions, we recommend:
+
+* AMD Ryzen 5 3600 or equivalent
+* Intel Core i5-12400F or equivalent
+* 16 GB of RAM
+
+A wired Ethernet connection is also recommended, as Wi-Fi connections can sometimes be less stable depending on the network environment.
