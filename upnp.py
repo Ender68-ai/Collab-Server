@@ -7,24 +7,30 @@ print("discovering router...")
 count = u.discover()
 print(f"found {count} device(s)")
 
+if count == 0:
+    raise RuntimeError("No UPnP devices found")
+
 u.selectigd()
 
 print("router:", u.getfriendlyname())
 print("local IP:", u.lanaddr)
 
-try:
-    u.deleteportmapping(8000, "TCP")
-    print("removed old 8000 mapping")
-except:
-    print("no old mapping found")
+ports = [8000, 8001, 7575]
 
-success = u.addportmapping(
-    8000,
-    "TCP",
-    u.lanaddr,
-    8000,
-    "MPEdit Backend",
-    ""
-)
+for port in ports:
+    try:
+        u.deleteportmapping(port, "TCP")
+        print(f"removed old {port} mapping")
+    except Exception:
+        print(f"no old {port} mapping found")
 
-print("mapping:", "SUCCESS" if success else "FAILED")
+    success = u.addportmapping(
+        port,
+        "TCP",
+        u.lanaddr,
+        port,
+        f"MPEdit Backend {port}",
+        ""
+    )
+
+    print(f"{port}: {'SUCCESS' if success else 'FAILED'}")
