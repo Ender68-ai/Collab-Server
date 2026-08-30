@@ -14,7 +14,7 @@ The following ports are used:
 | `8000` | Signaling server |
 | `8001` | Web server       |
 
-You can either use the included `upnp.py` script to configure port forwarding automatically, or manually forward ports `8000`, `8001`, and `7575` to the machine running the servers.
+You can either use the included `upnp.py` script to configure port forwarding automatically, (dont remember to run ipconfig or it wont work, i used port 43 on local ipv4) or manually forward ports `8000`, `8001`, and `7575` to the machine running the servers.
 
 > **Security note:** Do not expose these services to the public internet unless you have configured appropriate authentication, access controls, and network security.
 
@@ -59,3 +59,10 @@ web.py         → 8001
 ```
 
 Make sure the required ports are reachable from the clients before attempting to connect.
+
+
+### Recommendations
+
+For the machine running all 3, we recommend a machine that has a ryzen 3 1200 or superior or an intel i3 10100f at a minimum with 8gb ram for a basic session. 
+
+Although, we reccomend a ryzen 5 3600 or a intel i5 12400f or superior as a recommendation with 16gb ram. this also comes with ethernet connection, as wifi can sometimes be unstable.
